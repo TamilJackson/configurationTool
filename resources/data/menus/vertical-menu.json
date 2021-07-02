@@ -1,0 +1,44 @@
+{
+  "menu": [
+     {
+      "url": "#",
+      "name": "User",
+      "slug": "user",
+      "icon": "users",
+      "submenu": [
+        {
+          "url": "users/list",
+          "name": "List",
+          "slug": "app-users-list",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "users/add",
+          "name": "Add",
+          "slug": "app-users-add",
+          "icon": "bx bx-right-arrow-alt"
+        }
+      ]
+    },
+     {
+      "url": "#",
+      "name": "Role",
+      "slug": "role",
+      "icon": "shield",
+      "submenu": [
+        {
+          "url": "roles/list",
+          "name": "List",
+          "slug": "app-roles-list",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "roles/add",
+          "name": "Add",
+          "slug": "app-roles-edit",
+          "icon": "bx bx-right-arrow-alt"
+        }
+      ]
+    }    
+  ]
+}
