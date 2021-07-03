@@ -1,44 +1,55 @@
 {
   "menu": [
      {
-      "url": "#",
-      "name": "User",
-      "slug": "user",
-      "icon": "users",
+      "url": "sourcedata",
+      "name": "Source Data",
+      "slug": "sourcedata",
+      "icon": "diagram",
       "submenu": [
         {
-          "url": "users/list",
-          "name": "List",
-          "slug": "app-users-list",
+          "url": "sourcedata/lms",
+          "name": "Learning Management System",
+          "slug": "sourcedata-lms",
           "icon": "bx bx-right-arrow-alt"
         },
         {
-          "url": "users/add",
-          "name": "Add",
-          "slug": "app-users-add",
+          "url": "sourcedata/sis",
+          "name": "Student Information System",
+          "slug": "sourcedata-sis",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "sourcedata/crm",
+          "name": "CRM System",
+          "slug": "sourcedata-crm",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "sourcedata/dbmsystem",
+          "name": "DB Management System",
+          "slug": "sourcedata-dbmsystem",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "sourcedata/filesystem",
+          "name": "File System",
+          "slug": "sourcedata-filesystem",
           "icon": "bx bx-right-arrow-alt"
         }
       ]
     },
-     {
-      "url": "#",
-      "name": "Role",
-      "slug": "role",
-      "icon": "shield",
-      "submenu": [
-        {
-          "url": "roles/list",
-          "name": "List",
-          "slug": "app-roles-list",
-          "icon": "bx bx-right-arrow-alt"
-        },
-        {
-          "url": "roles/add",
-          "name": "Add",
-          "slug": "app-roles-edit",
-          "icon": "bx bx-right-arrow-alt"
-        }
-      ]
-    }    
+    {
+      "url": "roles/list",
+      "name": "Roles",
+      "slug": "roles-list",
+      "icon": "shield"
+    }, 
+    {
+      "url": "users/list",
+      "name": "Users",
+      "slug": "users-list",
+      "icon": "users"
+    }
+
   ]
 }

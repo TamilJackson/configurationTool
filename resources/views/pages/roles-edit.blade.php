@@ -51,10 +51,9 @@
                     <div class="row">
                       @foreach($permission as $value)
                     <div class="col-12 col-sm-3">
-                          <div class="checkbox"><input type="checkbox" name="permission[]"
-                                        id="{{$value->id}}"  @if(in_array($value->id, $rolePermissions)) 'checked' @endif class="checkbox-input" >
-                            <label for="{{$value->id}}">{{ $value->name }}</label>
-                          </div>
+                          <div class="checkbox-glow">{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'checkbox-input'))  }}
+                          <label>{{ $value->name }}</label>
+                        </div>
                         </div>
                     @endforeach
                     </div>

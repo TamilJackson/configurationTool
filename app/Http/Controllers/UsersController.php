@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id','DESC')->paginate(1);
+        $data = User::orderBy('id','DESC')->paginate(10);
         return view('pages.users-list',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 1);
     }
@@ -57,7 +57,7 @@ class UsersController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('pages.users-list')
+        return redirect()->route('users-list')
                         ->with('success','User created successfully');
     }
     
@@ -117,7 +117,7 @@ class UsersController extends Controller
     
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('pages.users-list')
+        return redirect()->route('users-list')
                         ->with('success','User updated successfully');
     }
     
@@ -130,7 +130,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('pages.users-list')
+        return redirect()->route('users-list')
                         ->with('success','User deleted successfully');
     }
 }

@@ -19,6 +19,7 @@ use App\Http\Controllers\LanguageController;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\SourcedataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +35,15 @@ Auth::routes(['verify' => true]);
 
 //Application Routes
 Route::group(['middleware' => ['auth']], function () {
-    // User Route
     Route::get('/', [UsersController::class, 'index'])->name('users-list');
+
+    Route::get('sourcedata/lms', [SourcedataController::class, 'lms'])->name('sourcedata-lms');
+    Route::get('sourcedata/sis', [SourcedataController::class, 'sis'])->name('sourcedata-sis');
+    Route::get('sourcedata/dbmsystem', [SourcedataController::class, 'dbmsystem'])->name('sourcedata-dbmsystem');
+    Route::get('sourcedata/crm', [SourcedataController::class, 'crm'])->name('sourcedata-crm');
+    Route::get('sourcedata/filesystem', [SourcedataController::class, 'filesystem'])->name('sourcedata-filesystem');
+
+    // User Route
     Route::get('users/list', [UsersController::class, 'index'])->name('users-list');
     Route::get('users/add', [UsersController::class, 'create'])->name('users-add');
     Route::post('users/store', [UsersController::class, 'store'])->name('users-store');

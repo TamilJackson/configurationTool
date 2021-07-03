@@ -6,7 +6,7 @@
 @if(isset($configData['footerType'])) {{$configData['footerType']}} @endif
 {{$configData['bodyCustomClass']}}
 @if($configData['mainLayoutType'] === 'vertical-menu-boxicons'){{'boxicon-layout'}}@endif
-@if($configData['isCardShadow'] === false){{'no-card-shadow'}}@endif"
+@if($configData['isCardShadow'] === false){{'no-card-shadow'}}@endif email-application"
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-framework="laravel">
 
   <!-- BEGIN: Header-->

@@ -18,8 +18,8 @@ $(document).ready(function () {
 
     // variable declaration
     var usersTable;
-    var usersDataArray = [],
-    form = $('.form-validate');
+    var usersDataArray = [];
+    //form = $('.form-validate');
 
     // datatable initialization
     if ($("#users-list-datatable").length > 0) {
@@ -113,40 +113,40 @@ $(document).ready(function () {
 
 
   // Validation
-  if (form.length) {
-    $(form).each(function () {
-      var $this = $(this);
-      $this.validate({
-        submitHandler: function (form, event) {
-          event.preventDefault();
-        },
-        rules: {
-          username: {
-            required: true
-          },
-          name: {
-            required: true
-          },
-          email: {
-            required: true,
-            email: true
-          },
-          dob: {
-            required: true,
-            step: false
-          },
-          phone: {
-            required: true
-          },
-          address: {
-            required: true
-          }
-        }
-      });
-    });
+  // if (form.length) {
+  //   $(form).each(function () {
+  //     var $this = $(this);
+  //     $this.validate({
+  //       submitHandler: function (form, event) {
+  //         event.preventDefault();
+  //       },
+  //       rules: {
+  //         // username: {
+  //         //   required: true
+  //         // },
+  //         name: {
+  //           required: true
+  //         },
+  //         email: {
+  //           required: true,
+  //           email: true
+  //         },
+  //         // dob: {
+  //         //   required: true,
+  //         //   step: false
+  //         // },
+  //         // phone: {
+  //         //   required: true
+  //         // },
+  //         address: {
+  //           required: true
+  //         }
+  //       }
+  //     });
+  //   });
 
-    $(this).on('submit', function (event) {
-      event.preventDefault();
-    });
-  }
+  //   $(this).on('submit', function (event) {
+  //     event.preventDefault();
+  //   });
+  // }
 });

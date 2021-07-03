@@ -78,14 +78,14 @@
                       </div>
                       <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" placeholder="Status">
+                        <select class="form-control" name="status" placeholder="Status">
                             <option value="1">Active</option>
                             <option value="0">Banned</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="********">
+                        <input type="password" name="password" class="form-control" placeholder="********">
                       </div>
                   </div>
                   <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">

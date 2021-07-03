@@ -70,15 +70,11 @@
                   <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label>Role</label>
-                        <select class="form-control select2" name="roles[]" multiple>
-                          @foreach ($roles as $key => $role)
-                            <option value="{{$role}}">{{$role}}</option>
-                          @endforeach
-                        </select>
+                        {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control  select2','multiple')) !!}
                       </div>
                       <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" placeholder="Status">
+                        <select class="form-control" name="status" placeholder="Status">
                             <option value="1" @if($user->status) Selected @endif >Active</option>
                             <option value="0" @if(!$user->status) Selected @endif >Banned</option>
                         </select>
