@@ -58,7 +58,7 @@
                                             <fieldset>
                                                 <div class="radio">
                                                     <input type="radio" name="dbradio" id="dbradio5" >
-                                                    <label for="dbradio5">Sqlite</label>
+                                                    <label for="dbradio5">Mssql</label>
                                                 </div>
                                             </fieldset>
                                         </li>

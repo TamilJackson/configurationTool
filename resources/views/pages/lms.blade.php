@@ -113,10 +113,10 @@
                   <div class="col-12 col-sm-6 api">
                       <div class="form-group">
                         <div class="controls">
-                            <label>Instance</label>
-                            <input type="text" class="form-control" placeholder="Instance"
+                            <label>Endpoint</label>
+                            <input type="text" class="form-control" placeholder="Endpoint"
                                 value=""
-                                name="instance">
+                                name="endpoint">
                         </div>
                       </div>
                     </div>
@@ -161,7 +161,7 @@
                                             <fieldset>
                                                 <div class="radio">
                                                     <input type="radio" name="dbradio" id="dbradio5" >
-                                                    <label for="dbradio5">Sqlite</label>
+                                                    <label for="dbradio5">Mssql</label>
                                                 </div>
                                             </fieldset>
                                         </li>

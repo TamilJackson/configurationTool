@@ -1,20 +1,76 @@
 @extends('layouts.contentLayoutMaster')
-{{-- page title --}}
-@section('title','Users Edit')
-{{-- vendor styles --}}
+
+@section('title','Learning Management System')
+{{-- vendor style --}}
 @section('vendor-styles')
-
+<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/css/editors/quill/quill.snow.css')}}">
 @endsection
-
 {{-- page styles --}}
 @section('page-styles')
+<link rel="stylesheet" type="text/css" href="{{asset('resources/css/pages/app-email.css')}}">
 @endsection
 
+{{-- sidebar page icluded --}}
+
 @section('content')
-<section class="users-edit">
-  <div class="card">
-    <div class="card-body">
-            <form class="form-validate" method="POST" action="{{route('users-store')}}">
+<!-- email app overlay -->
+    <div class="content-area-wrapper">
+      <div class="sidebar-left">
+        <div class="sidebar">
+<div class="sidebar-content email-app-sidebar d-flex">
+  <!-- sidebar close icon -->
+  <span class="sidebar-close-icon">
+    <i class="bx bx-x"></i>
+  </span>
+  <!-- sidebar close icon -->
+  <div class="email-app-menu">
+    <div class="form-group form-group-compose">
+    </div>
+    <div class="sidebar-menu-list">
+      <!-- sidebar menu  -->
+      <div class="list-group list-group-messages">
+        <a href="javascript:void(0);" class="list-group-item pt-0 active" id="inbox-menu">
+          <div class="fonticon-wrap d-inline mr-25">
+            <i class="livicon-evo"
+              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
+            </i>
+          </div>CRM System1
+        </a>
+        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+          <div class="fonticon-wrap d-inline mr-25">
+            <i class="livicon-evo"
+              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
+            </i>
+          </div>CRM System2
+        </a>
+        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+          <div class="fonticon-wrap d-inline mr-25">
+            <i class="livicon-evo"
+              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
+            </i>
+          </div>CRM System3
+        </a>
+        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+          <div class="fonticon-wrap d-inline mr-25">
+            <i class="livicon-evo"
+              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
+            </i>
+          </div>CRM System4
+        </a>
+        
+      </div>
+      <!-- sidebar menu  end-->
+
+      
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="content-right">
+  <div class="content-wrapper">
+<div class="content-body card-body">
+                <form class="form-validate" method="POST" action="{{route('users-store')}}">
               {{ csrf_field() }}
                 <div class="row">
                   <div class="col-12 col-sm-12">
@@ -57,10 +113,10 @@
                   <div class="col-12 col-sm-6 api">
                       <div class="form-group">
                         <div class="controls">
-                            <label>Instance</label>
-                            <input type="text" class="form-control" placeholder="Instance"
+                            <label>Endpoint</label>
+                            <input type="text" class="form-control" placeholder="Endpoint"
                                 value=""
-                                name="instance">
+                                name="endpoint">
                         </div>
                       </div>
                     </div>
@@ -105,7 +161,7 @@
                                             <fieldset>
                                                 <div class="radio">
                                                     <input type="radio" name="dbradio" id="dbradio5" >
-                                                    <label for="dbradio5">Sqlite</label>
+                                                    <label for="dbradio5">Mssql</label>
                                                 </div>
                                             </fieldset>
                                         </li>
@@ -158,20 +214,19 @@
                   </div>
                 </div>
             </form>
-      </div>
-    </div>
   </div>
-</section>
-<!-- users edit ends -->
+</div>
+  </div>
+</div>
+<div class="app-content-overlay"></div>
 @endsection
 
 {{-- vendor scripts --}}
 @section('vendor-scripts')
-
 @endsection
 
-{{-- page scripts --}}
-@section('page-scripts')<script type="text/javascript">
+@section('page-scripts')
+<script type="text/javascript">
 $(document).ready(function() {
   $('.db').hide();
     $(':radio').change(function (event) {
