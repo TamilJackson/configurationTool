@@ -70,7 +70,7 @@
 <div class="content-right">
   <div class="content-wrapper">
 <div class="content-body card-body">
-                <form class="form-validate" method="POST" action="{{route('users-store')}}">
+                <form class="form-validate setupForm" method="POST" action="{{route('users-store')}}">
               {{ csrf_field() }}
                 <div class="row">
                   <div class="col-12 col-sm-12">
@@ -124,49 +124,13 @@
                       <div class="form-group">
                         <div class="controls">
                             <label>Type</label>
-                            <ul class="list-unstyled mb-0">
-                                        <li class="d-inline-block mr-2 mb-1">
-                                            <fieldset>
-                                                <div class="radio">
-                                                    <input type="radio" name="dbradio" id="dbradio1" checked="">
-                                                    <label for="dbradio1">Mysql</label>
-                                                </div>
-                                            </fieldset>
-                                        </li>
-                                        <li class="d-inline-block mr-2 mb-1">
-                                            <fieldset>
-                                                <div class="radio">
-                                                    <input type="radio" name="dbradio" id="dbradio2" >
-                                                    <label for="dbradio2">Pgsql</label>
-                                                </div>
-                                            </fieldset>
-                                        </li>
-                                        <li class="d-inline-block mr-2 mb-1">
-                                            <fieldset>
-                                                <div class="radio">
-                                                    <input type="radio" name="dbradio" id="dbradio3" >
-                                                    <label for="dbradio3">Sybase</label>
-                                                </div>
-                                            </fieldset>
-                                        </li>
-                                        <li class="d-inline-block mr-2 mb-1">
-                                            <fieldset>
-                                                <div class="radio">
-                                                    <input type="radio" name="dbradio" id="dbradio4" >
-                                                    <label for="dbradio4">Oracle</label>
-                                                </div>
-                                            </fieldset>
-                                        </li>
-                                        <li class="d-inline-block mr-2 mb-1">
-                                            <fieldset>
-                                                <div class="radio">
-                                                    <input type="radio" name="dbradio" id="dbradio5" >
-                                                    <label for="dbradio5">Mssql</label>
-                                                </div>
-                                            </fieldset>
-                                        </li>
-                                    </ul>
-                            
+                            <select class="form-control">
+                              <option value="mysql">Mysql</option>
+                              <option value="mssql">Mssql</option>
+                              <option value="pgsql">Pgsql</option>
+                              <option value="sybase">Sybase</option>
+                              <option value="oracle">Oracle</option>
+                            </select>                          
                             
                         </div>
                       </div>
@@ -208,12 +172,113 @@
                       </div>
                     </div>
                   <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
-                      <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save
-                        changes</button>
+                      <button type="button" id="saveAndSchedule" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save and Schedule</button>
                       <button type="reset" class="btn btn-light">Cancel</button>
                   </div>
                 </div>
             </form>
+            <form class="form-validate scheduleForm" style="display:none;" method="POST" action="{{route('users-store')}}">
+              {{ csrf_field() }}
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <ul class="nav nav-tabs mb-2" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center active" id="first-tab" data-toggle="tab" href="#first" aria-controls="first" role="tab" aria-selected="true">
+                                        <i class="bx bx-import mr-25"></i><span class="d-none d-sm-block">First Import Scheduler</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center" id="periodic-tab" data-toggle="tab" href="#periodic" aria-controls="periodic" role="tab" aria-selected="false">
+                                        <i class="bx bx-history mr-25"></i><span class="d-none d-sm-block">Periodic Import Scheduler</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active fade show" id="first" aria-labelledby="first-tab" role="tabpanel">
+                                  <div class="row">
+                                  <div class="col-12 col-sm-12">
+                                  <div class="form-group">
+                                  <div class="controls">
+                                      <label>Exact Data Beginning</label>
+                                      <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="text" class="form-control pickadate" placeholder="Select Date">
+                                            <div class="form-control-position">
+                                                <i class='bx bx-calendar'></i>
+                                            </div>
+                                        </fieldset>
+                                  </div>
+                                </div>
+                              </div>
+                                  <div class="col-12 col-sm-12">
+                                  <div class="form-group">
+                                  <div class="controls">
+                                      <label>Run once at in GMT</label>
+                                      <div class="row">
+                                      <div class="col-12 col-sm-6">
+                                     <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="text" class="form-control pickadate" placeholder="Select Date">
+                                            <div class="form-control-position">
+                                                <i class='bx bx-calendar'></i>
+                                            </div>
+                                        </fieldset>
+                                      </div>
+                                        <div class="col-12 col-sm-6">
+                                        <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="text" class="form-control pickatime" placeholder="Select Time">
+                                            <div class="form-control-position">
+                                                <i class='bx bx-history'></i>
+                                            </div>
+                                        </fieldset>
+                                      </div>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                  <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                      <button type="button" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
+                  </div>
+                                </div>
+                                <div class="tab-pane" id="periodic" aria-labelledby="periodic-tab" role="tabpanel">
+                                  <div class="row">
+                                  <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                  <div class="controls">
+                                      <label>Frequency</label>
+                                      <select class="form-control">
+                              <option value="daily">Daily</option>
+                              <option value="weekly">Weekly</option>
+                              <option value="monthly">Monthly</option>
+                              <option value="weekdays">Week Days</option>
+                            </select>  
+                                  </div>
+                                </div>
+                              </div>
+                                  <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                  <div class="controls">
+                                      <label>Start at GMT</label>
+                                      <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="text" class="form-control pickatime" placeholder="Select Time">
+                                            <div class="form-control-position">
+                                                <i class='bx bx-history'></i>
+                                            </div>
+                                        </fieldset>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                      <button type="button" id="saveAndSchedule" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
+                  </div>
+                                </div>
+                              </div>
+                  </div>
+                </div>
+              </form>
   </div>
 </div>
   </div>
@@ -240,6 +305,10 @@ $(document).ready(function() {
       $('.db').show();
     }
 });
+  $("#saveAndSchedule").click(function(){
+      $('.setupForm').hide();    
+      $('.scheduleForm').show();    
+  });
 });
 </script>
 @endsection

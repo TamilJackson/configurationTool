@@ -13,11 +13,14 @@
     <script src="{{asset('resources/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('resources/vendors/js/pickers/pickadate/picker.js')}}"></script>
     <script src="{{asset('resources/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+    <script src="{{asset('resources/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+    <script src="{{asset('resources/vendors/js/pickers/pickadate/legacy.js')}}"></script>
 
     <script src="{{asset('resources/vendors/js/tables/datatable/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('resources/vendors/js/tables/datatable/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('resources/vendors/js/tables/datatable/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('resources/vendors/js/tables/datatable/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('resources/vendors/js/file-uploaders/dropzone.min.js')}}"></script>
     <script src="{{asset('resources/js/scripts/navs/navs.js')}}"></script>
 
     <!-- BEGIN: Page Vendor JS-->
@@ -40,5 +43,8 @@
 
 
     <!-- BEGIN: Page JS-->
+
+    <!-- <script src="{{asset('resources/js/scripts/pickers/dateTime/pick-a-datetime.js')}}"></script> 
+    <script src="{{asset('resources/js/scripts/extensions/dropzone.js')}}"></script>-->
     @yield('page-scripts')
     <!-- END: Page JS-->

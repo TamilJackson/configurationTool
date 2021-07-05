@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('resources/css/core/menu/menu-types/vertical-menu.css')}}">
     @endif
     @yield('page-styles')
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/css/plugins/file-uploaders/dropzone.css')}}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -46,3 +47,4 @@
     <link rel="stylesheet" type="text/css" href="{{asset('resources/css/plugins/forms/validation/form-validation.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/css/forms/select/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/css/pickers/pickadate/pickadate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/css/file-uploaders/dropzone.min.css')}}">
