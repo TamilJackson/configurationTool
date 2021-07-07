@@ -47,7 +47,7 @@
               @foreach ($data as $key => $user)
               <tr>
                 <td>{{ ++$i }}</td>
-                <td><a href="{{asset('users/view')}}">{{ $user->name }}</a> </td>
+                <td><a href="{{route('users-view',$user->id)}}">{{ $user->name }}</a> </td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone }}</td>
                 <td>
