@@ -14,14 +14,14 @@
 <section class="users-edit">
   <div class="card">
     <div class="card-body">
-                        <form class="form-validate setupForm" method="POST" action="{{route('users-store')}}">
+       <form class="form-validate setupForm" method="POST" action="{{route('connectdbmsystem')}}">
               {{ csrf_field() }}
                 <div class="row">
                   <div class="col-12 col-sm-12 db">
                       <div class="form-group">
                         <div class="controls">
                             <label>Type</label>
-                            <select class="form-control">
+                            <select class="form-control" name="type">
                               <option value="mysql">Mysql</option>
                               <option value="mssql">Mssql</option>
                               <option value="pgsql">Pgsql</option>
@@ -70,7 +70,7 @@
                       </div>
                     </div>
                   <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
-                      <button type="button" id="saveAndSchedule" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save and Schedule</button>
+                      <button type="submit" id="saveAndSchedule" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Get Data</button>
                       <button type="reset" class="btn btn-light">Cancel</button>
                   </div>
                 </div>
@@ -193,10 +193,10 @@
 @section('page-scripts')
 <script type="text/javascript">
 $(document).ready(function() {
-      $("#saveAndSchedule").click(function(){
-      $('.setupForm').hide();    
-      $('.scheduleForm').show();    
-  });
+  //     $("#saveAndSchedule").click(function(){
+  //     $('.setupForm').hide();    
+  //     $('.scheduleForm').show();    
+  // });
 });
 </script>
 @endsection

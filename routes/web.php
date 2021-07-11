@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sourcedata/lms', [SourcedataController::class, 'lms'])->name('sourcedata-lms');
     Route::get('sourcedata/sis', [SourcedataController::class, 'sis'])->name('sourcedata-sis');
     Route::get('sourcedata/dbmsystem', [SourcedataController::class, 'dbmsystem'])->name('sourcedata-dbmsystem');
+    Route::post('sourcedata/connectdbmsystem', [SourcedataController::class, 'connectdbmsystem'])->name('connectdbmsystem');
+
     Route::get('sourcedata/crm', [SourcedataController::class, 'crm'])->name('sourcedata-crm');
     Route::get('sourcedata/filesystem', [SourcedataController::class, 'filesystem'])->name('sourcedata-filesystem');
 
