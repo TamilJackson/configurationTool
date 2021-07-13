@@ -53,7 +53,7 @@ class SourcedataController extends Controller
         ]);
         
 
-        $tables = $database->query("select table_name from information_schema.tables where TABLE_SCHEMA='configurationtool'")->fetchAll();
+        $tables = $database->query("select table_name from information_schema.tables where TABLE_SCHEMA='".$request->dbname."'")->fetchAll();
         $schema = [
             'type' => $request->type,
             'host' => $request->host,

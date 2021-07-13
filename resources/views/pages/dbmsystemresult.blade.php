@@ -1,6 +1,6 @@
 @extends('layouts.contentLayoutMaster')
 {{-- page title --}}
-@section('title','Users Edit')
+@section('title','Database Management System Result')
 {{-- vendor styles --}}
 @section('vendor-styles')
 
@@ -13,6 +13,16 @@
 
 @section('content')
 <section class="users-view">
+    <!-- users view media object start -->
+  <div class="row">
+    <div class="col-12 col-sm-7">
+      <h3>DB Management System</h3>
+    </div>
+    <div class="col-12 col-sm-5 px-0 d-flex justify-content-end align-items-center px-1 mb-2">
+      <a href="{{route('sourcedata-dbmsystem')}}" class="btn btn-sm btn-primary">Back</a>
+    </div>
+  </div>
+  <!-- users view media object ends -->
   <div class="card">
     <div class="card-body">
       <div class="row">
@@ -54,6 +64,9 @@
                       <tr>
                           <th>Column</th>
                           <th>Type</th>
+                          <th>Key</th>
+                          <th>Default</th>
+                          <th>Extra</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -62,6 +75,9 @@
                       <tr>
                           <td>{{$field['Field']}}</td>
                           <td>{{$field['Type']}}</td>
+                          <td>{{$field['Key']}}</td>
+                          <td>{{$field['Default']}}</td>
+                          <td>{{$field['Extra']}}</td>
                           <td><i class="bx bx-edit-alt"></i></td>
                       </tr>
                     @endforeach

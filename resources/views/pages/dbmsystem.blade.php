@@ -12,8 +12,16 @@
 
 @section('content')
 <section class="users-edit">
+  <div class="row">
+    <div class="col-12 mb-1">
+        <div class="float-left">
+            <h3>DB Management System</h3>
+        </div>
+    </div>
+</div>
   <div class="card">
     <div class="card-body">
+      <!-- route('connectdbmsystem') -->
        <form class="form-validate setupForm" method="POST" action="{{route('connectdbmsystem')}}">
               {{ csrf_field() }}
                 <div class="row">

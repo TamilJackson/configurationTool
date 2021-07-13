@@ -13,6 +13,13 @@
 {{-- sidebar page icluded --}}
 
 @section('content')
+    <div class="row">
+    <div class="col-12 mb-1">
+        <div class="float-left">
+            <h3>Learning Management System</h3>
+        </div>
+    </div>
+</div>
 <!-- email app overlay -->
     <div class="content-area-wrapper">
       <div class="sidebar-left">
