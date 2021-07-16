@@ -175,7 +175,7 @@
                                         <td class="">Numeric</td>
                                         <td class="">100%</td>
                                         <td class="">99%</td>
-                                        <td> <a href="javascript:void(0);"><i class="bx bx-edit-alt mr-1"></i></a>
+                                        <td> <a href="javascript:void(0);" data-toggle="modal" data-target="#xlarge"><i class="bx bx-edit-alt mr-1"></i></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,7 +184,7 @@
                                         <td class="">String</td>
                                         <td class="">100%</td>
                                         <td class="">96%</td>
-                                        <td> <a href="javascript:void(0);"><i class="bx bx-edit-alt mr-1"></i></a>
+                                        <td> <a href="javascript:void(0);" data-toggle="modal" data-target="#xlarge"><i class="bx bx-edit-alt mr-1"></i></a>
                                     </tr>
                                 </tbody>
                             </table>
@@ -302,16 +302,34 @@
 </section>
 <!--Extra Large Modal -->
 <div class="modal fade text-left w-100" id="xlarge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-l">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel16">View Data</h4>
+                <h4 class="modal-title" id="myModalLabel16">Edit quality level</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="bx bx-x"></i>
                 </button>
             </div>
             <div class="modal-body">
-                
+                <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Expected Type</label>
+                                <select name="expectedType" class="form-control">
+                                    <option value="String">String</option>
+                                    <option value="Integer">Integer</option>
+                                    <option value="Date">Date</option>
+                                    <option value="Timestamp">Timestamp</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="eventLocation12">Acceptance Level</label>
+                                <input name="level" class="form-control" value="99%">
+                            </div>
+                        </div>
+                    </div>                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
@@ -320,7 +338,7 @@
                 </button>
                 <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
                     <i class="bx bx-check d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">Accept</span>
+                    <span class="d-none d-sm-block">Save</span>
                 </button>
             </div>
         </div>
