@@ -16,7 +16,7 @@
     <div class="row">
     <div class="col-12 mb-1">
         <div class="float-left">
-            <h3>CRM System</h3>
+            <h3>Learning Management System</h3>
         </div>
     </div>
 </div>
@@ -41,28 +41,28 @@
             <i class="livicon-evo"
               data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
             </i>
-          </div>Pipedrive
+          </div>Canvas Instructure Cloud
         </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+        <a href="javascript:void(0);" class="list-group-item pt-0">
           <div class="fonticon-wrap d-inline mr-25">
             <i class="livicon-evo"
               data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
             </i>
-          </div>Zoho
+          </div>Canvas Instructure Self Hosted
         </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+        <a href="javascript:void(0);" class="list-group-item pt-0">
           <div class="fonticon-wrap d-inline mr-25">
             <i class="livicon-evo"
               data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
             </i>
-          </div>Insightly
+          </div>Moodle
         </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
+        <a href="javascript:void(0);" class="list-group-item pt-0">
           <div class="fonticon-wrap d-inline mr-25">
             <i class="livicon-evo"
               data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
             </i>
-          </div>Nutshell
+          </div>Blackboard
         </a>
         
       </div>
@@ -290,6 +290,7 @@
 </div>
   </div>
 </div>
+
 <div class="app-content-overlay"></div>
 @endsection
 
@@ -312,7 +313,7 @@ $(document).ready(function() {
       $('.db').show();
     }
 });
-      $("#saveAndSchedule").click(function(){
+  $("#saveAndSchedule").click(function(){
       $('.setupForm').hide();    
       $('.scheduleForm').show();    
   });

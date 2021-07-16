@@ -76,6 +76,14 @@ class SourcedataController extends Controller
         return view('pages.dbmsystemresult',compact('schema'));
 
     }
+    public function qualitylevel(Request $request)
+    {
+        return view('pages.qualitylevel');
+    }
+    public function rules(Request $request)
+    {
+        return view('pages.rules');
+    }
     public function crm(Request $request)
     {
         return view('pages.crm');

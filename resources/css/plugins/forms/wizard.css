@@ -11,6 +11,7 @@
   table-layout: fixed;
   margin: 0;
   padding: 0;
+  border-right: 1px solid #DFE3E7;
 }
 
 .wizard .steps ul li {
@@ -143,7 +144,7 @@
 .wizard .actions ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0;  
 }
 
 .wizard .actions ul li {
@@ -205,7 +206,6 @@
   /* content inside vertical */
   float: left;
   width: 70%;
-  border-left: 1px solid #DFE3E7;
 }
 
 .wizard.vertical .content .body {

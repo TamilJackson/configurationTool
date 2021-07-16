@@ -44,6 +44,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('sourcedata/crm', [SourcedataController::class, 'crm'])->name('sourcedata-crm');
     Route::get('sourcedata/filesystem', [SourcedataController::class, 'filesystem'])->name('sourcedata-filesystem');
+    
+    Route::get('sourcedata/qualitylevel', [SourcedataController::class, 'qualitylevel'])->name('sourcedata-qualitylevel');
+    Route::get('sourcedata/rules', [SourcedataController::class, 'rules'])->name('sourcedata-rules');
+    
+
+
 
     // User Route
     Route::get('users/list', [UsersController::class, 'index'])->name('users-list');
