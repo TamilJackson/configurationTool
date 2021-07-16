@@ -55,7 +55,143 @@
                 <!-- table view data start -->
                 <section id="table-success">
                     <div class="card">
-                        <!-- Info table about action starts -->
+                        <!-- rules start -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-primary bg-lighten-1 p-1">
+                                        <h4 class="card-title white">Table Rules </h4>
+                                        <a class="heading-elements-toggle">
+                                            <i class='bx bx-dots-vertical font-medium-3'></i>
+                                        </a>
+                                        <div class="heading-elements">
+                                            <ul class="list-inline mb-0">
+                                                <li>
+                                                    <a data-action="collapse" class="rotate white">
+                                                        <i class="bx bx-chevron-down"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a data-action="close" class="white">
+                                                        <i class="bx bx-x"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-content collapse pt-2" style="background: #fff;">
+                                        <div class="card-body p-0">
+                                             <!-- rules form start -->
+                                            <form class="form-validate" method="POST" action="#">
+                                              {{ csrf_field() }}
+                                                <div class="row">
+                                                  <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label>Select Rules</label>
+                                                        <select class="form-control" name="rules" placeholder="Rules">
+                                                            <option value="1">Generic Rules</option>
+                                                            <option value="0">Custom Rule 1</option>
+                                                        </select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label>Apply to all data</label>                      
+                                                        <div class="custom-control custom-switch mr-2 mb-1">
+                                                            <input type="checkbox" class="custom-control-input" checked id="customSwitch17">
+                                                            <label class="custom-control-label" for="customSwitch17">
+                                                                <span class="switch-icon-left"><i class="bx bx-check"></i></span>
+                                                                <span class="switch-icon-right"><i class="bx bx-x"></i></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-12">
+                                                      <a href="{{route('sourcedata-rules')}}" class="btn btn-light-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 float-left">New Rule</a>
+                                                      <button type="button" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 float-right" data-toggle="modal" data-target="#default">Save</button>
+                                                  </div>
+                                                </div>
+                                            </form>
+                                            <!-- rules form ends -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- rules end -->
+
+                        <!--Basic Modal -->
+                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="myModalLabel1">Rules</h3>
+                                        <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
+                                            <i class="bx bx-x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="mb-0">
+                                            Sit back and relax! It will take 24 hours time to apply your rules
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Ok</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- datatable start -->
+                        <hr>
+                      <div class="card-header p-1">
+                            <!-- head -->
+                            <h5 class="card-title">Quality Levels</h5>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0 d-flex align-items-center">
+                                    <!-- <li class="ml-2"><button class="btn btn-light-primary" data-toggle="modal" data-target="#xlarge">View Data</button></li> 
+                                    <li class="ml-2"><button class="btn btn-light-primary">Table Rules</button></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="table-extended-success" class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Column</th>
+                                        <th>Discovered Type</th>
+                                        <th>Expected Type</th>
+                                        <th>Acceptance Level</th>
+                                        <th>DQ Audit Score</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="">course_id</td>
+                                        <td class="">Numeric</td>
+                                        <td class="">Numeric</td>
+                                        <td class="">100%</td>
+                                        <td class="">99%</td>
+                                        <td> <a href="javascript:void(0);"><i class="bx bx-edit-alt mr-1"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">course_description</td>
+                                        <td class="">String</td>
+                                        <td class="">String</td>
+                                        <td class="">100%</td>
+                                        <td class="">96%</td>
+                                        <td> <a href="javascript:void(0);"><i class="bx bx-edit-alt mr-1"></i></a>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- datatable ends -->
+                        <hr>
+                                                <!-- Info table about action starts -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -143,148 +279,6 @@
                             </div>
                         </div>
                         <!-- Info table about action Ends -->
-                        <!-- rules start -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header bg-primary bg-lighten-1 p-1">
-                                        <h4 class="card-title white">Table Rules </h4>
-                                        <a class="heading-elements-toggle">
-                                            <i class='bx bx-dots-vertical font-medium-3'></i>
-                                        </a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li>
-                                                    <a data-action="collapse" class="rotate white">
-                                                        <i class="bx bx-chevron-down"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-action="close" class="white">
-                                                        <i class="bx bx-x"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-content collapse pt-2" style="background: #fff;">
-                                        <div class="card-body p-0">
-                                             <!-- rules form start -->
-                                            <form class="form-validate" method="POST" action="#">
-                                              {{ csrf_field() }}
-                                                <div class="row">
-                                                  <div class="col-12 col-sm-12">
-                                                      <div class="form-group">
-                                                        <label>Select Rules</label>
-                                                        <select class="form-control" name="rules" placeholder="Rules">
-                                                            <option value="1">Generic Rules</option>
-                                                            <option value="0">Custom Rule 1</option>
-                                                        </select>
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-12">
-                                                      <a href="{{route('sourcedata-rules')}}" class="btn btn-light-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 float-left">New Rule</a>
-                                                      <button type="button" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 float-right" data-toggle="modal" data-target="#default">Save</button>
-                                                  </div>
-                                                </div>
-                                            </form>
-                                            <!-- rules form ends -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- rules end -->
-
-                        <!--Basic Modal -->
-                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title" id="myModalLabel1">Rules</h3>
-                                        <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
-                                            <i class="bx bx-x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="mb-0">
-                                            Sit back and relax! It will take 24 hours time to apply your rules
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Ok</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- datatable start -->
-                        <hr>
-                      <div class="card-header p-1">
-                            <!-- head -->
-                            <h5 class="card-title">Quality Levels</h5>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0 d-flex align-items-center">
-                                    <!-- <li class="ml-2"><button class="btn btn-light-primary" data-toggle="modal" data-target="#xlarge">View Data</button></li> 
-                                    <li class="ml-2"><button class="btn btn-light-primary">Table Rules</button></li>-->
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table id="table-extended-success" class="table mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>Column</th>
-                                        <th>Discovered Type</th>
-                                        <th>Expected Type</th>
-                                        <th>Acceptance Level</th>
-                                        <th>DQ Audit Score</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="">course_id</td>
-                                        <td class="">Numeric</td>
-                                        <td class="">Numeric</td>
-                                        <td class="">100%</td>
-                                        <td class="">99%</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-clipboard mr-1"></i> Transformations</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-shape-circle mr-1"></i> Cluster Column</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-stats mr-1"></i> Distributions</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-analyse mr-1"></i> Quality Measures</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="">course_description</td>
-                                        <td class="">String</td>
-                                        <td class="">String</td>
-                                        <td class="">100%</td>
-                                        <td class="">96%</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <span class="bx bx-dots-vertical-rounded font-medium-3 dropdown-toggle nav-hide-arrow cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menu"></span>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-clipboard mr-1"></i> Transformations</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-shape-circle mr-1"></i> Cluster Column</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-stats mr-1"></i> Distributions</a>
-                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-analyse mr-1"></i> Quality Measures</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- datatable ends -->
                     </div>
                 </section>
                 <!-- table view data ends -->

@@ -78,7 +78,7 @@
     <ul class="nav nav-tabs mb-2" role="tablist">
       <li class="nav-item">
         <a class="nav-link d-flex align-items-center active" id="available-tab" data-toggle="tab" href="#available" aria-controls="first" role="tab" aria-selected="true">
-          <i class="bx bxs-component mr-25"></i><span class="d-none d-sm-block">Available System</span>
+          <i class="bx bxs-component mr-25"></i><span class="d-none d-sm-block">Available Dumb</span>
         </a>
       </li>
       <li class="nav-item">
@@ -90,10 +90,10 @@
     <div class="tab-content shadow-none">
       <div class="tab-pane active fade show" id="available" aria-labelledby="available-tab" role="tabpanel">        
         <div class="list-group">
-          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">423-Canvas-07_21_2021</a>
-          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">424-Canvas-07_14_2021</a>
-          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">425-Canvas-07_20_2021</a>
-          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">426-Canvas-07_10_2021</a>
+          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">423-Canvas-07_21_2021 / <small>Generic Rule</small></a>
+          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">424-Canvas-07_14_2021 / <small>Custom Rule 1</small></a>
+          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">425-Canvas-07_20_2021 / <small>Custom Rule 1</small></a>
+          <a href="{{route('sourcedata-qualitylevel')}}" class="list-group-item list-group-item-action">426-Canvas-07_10_2021 / <small>Generic Rule</small></a>
       </div>
       </div>
       <div class="tab-pane" id="new_connection" aria-labelledby="new_connection-tab" role="tabpanel">
