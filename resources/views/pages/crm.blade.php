@@ -41,28 +41,7 @@
             <i class="livicon-evo"
               data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
             </i>
-          </div>Pipedrive
-        </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
-          <div class="fonticon-wrap d-inline mr-25">
-            <i class="livicon-evo"
-              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
-            </i>
-          </div>Zoho
-        </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
-          <div class="fonticon-wrap d-inline mr-25">
-            <i class="livicon-evo"
-              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
-            </i>
-          </div>Insightly
-        </a>
-        <a href="javascript:void(0);" class="list-group-item pt-0" id="inbox-menu">
-          <div class="fonticon-wrap d-inline mr-25">
-            <i class="livicon-evo"
-              data-options="name: chevron-right-double.svg; size: 24px; style: lines; strokeColor:#5A8DEE; eventOn:grandparent; duration:0.85;">
-            </i>
-          </div>Nutshell
+          </div>Dynamic CRM
         </a>
         
       </div>
