@@ -12,6 +12,8 @@ use Illuminate\Support\Arr;
 // Using Medoo namespace.
 use Medoo\Medoo;
 
+use Illuminate\Support\Facades\Storage;
+
 class SourcedataController extends Controller
 {
   /**
@@ -29,20 +31,11 @@ class SourcedataController extends Controller
     }
     public function dbmsystem(Request $request)
     {
-        return view('pages.dbmsystem');
+        $folders = Storage::disk('local')->directories('dbms');
+        return view('pages.dbmsystem',compact('folders'));
     }
-    public function connectdbmsystem(Request $request)
+    public function testdbmsystem(Request $request)
     {
-
-        // Connect the database.
-        // $database = new Medoo([
-        //     'type' => 'mysql',
-        //     'host' => '127.0.0.1',
-        //     'database' => 'configurationtool',
-        //     'username' => 'root',
-        //     'password' => ''
-        // ]);
-
         //Connect the database.
         $database = new Medoo([
             'type' => $request->type,
@@ -51,6 +44,26 @@ class SourcedataController extends Controller
             'username' => $request->username,
             'password' => $request->password
         ]);
+        if($database)
+            return view('pages.dbmsystem')->with('successMsg','Database connection successful.');
+            
+    }
+    public function connectdbmsystem(Request $request)
+    {
+        //Connect the database.
+        $database = new Medoo([
+            'type' => $request->type,
+            'host' => $request->host,
+            'database' => $request->dbname,
+            'username' => $request->username,
+            'password' => $request->password
+        ]);
+        if($request->action=='test'){
+            if($database){                
+                $folders = Storage::disk('local')->directories('dbms');
+                return view('pages.dbmsystem',compact('folders'))->with('successMsg','Database connection successful.');
+            }
+        }
         
 
         $tables = $database->query("select table_name from information_schema.tables where TABLE_SCHEMA='".$request->dbname."'")->fetchAll();
@@ -62,19 +75,36 @@ class SourcedataController extends Controller
             'password' => $request->password
         ];
         $i=0;
+        $path = 'dbms/'.$request->dbname.time();
+        Storage::makeDirectory($path);
 
         foreach($tables as $table){
-            $schema['schema'][$i]['table_name'] = $table['table_name'];
-            $schema['schema'][$i]['fields'] = $database->query("describe ".$table['table_name'])->fetchAll();
-            $schema['schema'][$i]['data'] = $database->query("select * from ".$table['table_name'])->fetchAll();
+            $tablename = $table['table_name'];
+            $schema['schema'][$i]['table_name'] = $tablename;
+            $table_schema = $database->query("describe ".$table['table_name'])->fetchAll();
+            $table_data = $database->select($table['table_name'],'*');
+            $schema['schema'][$i]['fields'] = $table_schema;
+            $schema['schema'][$i]['data'] = $table_data;
+            Storage::put($path.'/table_'.$table['table_name'].'.json', json_encode($table_data));
             $i++;
+            $tableschema["$tablename"]=$table_schema;
+            Storage::put($path.'/schema_'.$table['table_name'].'.json', json_encode($tableschema));
         }
+        Storage::put($path.'/schema_'.$request->dbname.'.json', json_encode($tableschema));
+
         //$schema = json_encode($schema);
         //$schema = response()->json($schema);
         //dd($schema);
 
-        return view('pages.dbmsystemresult',compact('schema'));
+        return redirect()->route('sourcedata-dbmsystem');
+        //return view('pages.dbmsystemresult',compact('schema'));
 
+    }
+    public function dbqualitylevel(Request $request)
+    {
+        $folder = $request->dir;
+        $files = Storage::disk('local')->files('dbms/'.$folder);
+        return view('pages.dbqualitylevel',compact('files','folder'));
     }
     public function qualitylevel(Request $request)
     {

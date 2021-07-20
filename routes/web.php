@@ -40,12 +40,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sourcedata/lms', [SourcedataController::class, 'lms'])->name('sourcedata-lms');
     Route::get('sourcedata/sis', [SourcedataController::class, 'sis'])->name('sourcedata-sis');
     Route::get('sourcedata/dbmsystem', [SourcedataController::class, 'dbmsystem'])->name('sourcedata-dbmsystem');
+    Route::get('sourcedata/testdbmsystem', [SourcedataController::class, 'testdbmsystem'])->name('sourcedata-testdbmsystem');
     Route::post('sourcedata/connectdbmsystem', [SourcedataController::class, 'connectdbmsystem'])->name('connectdbmsystem');
 
     Route::get('sourcedata/crm', [SourcedataController::class, 'crm'])->name('sourcedata-crm');
     Route::get('sourcedata/filesystem', [SourcedataController::class, 'filesystem'])->name('sourcedata-filesystem');
     
     Route::get('sourcedata/qualitylevel', [SourcedataController::class, 'qualitylevel'])->name('sourcedata-qualitylevel');
+    Route::get('sourcedata/dbqualitylevel/{dir}', [SourcedataController::class, 'dbqualitylevel'])->name('sourcedata-dbqualitylevel');
     Route::get('sourcedata/rules', [SourcedataController::class, 'rules'])->name('sourcedata-rules');
     
 
