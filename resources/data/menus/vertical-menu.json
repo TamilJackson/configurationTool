@@ -39,6 +39,32 @@
       ]
     },
     {
+      "url": "sourcedata",
+      "name": "Master Source Data",
+      "slug": "sourcedata",
+      "icon": "two-pointers",
+      "submenu": [
+        {
+          "url": "systems/list",
+          "name": "Systems",
+          "slug": "system-list",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "products/list",
+          "name": "Products",
+          "slug": "products",
+          "icon": "bx bx-right-arrow-alt"
+        },
+        {
+          "url": "apiset/list",
+          "name": "API Set",
+          "slug": "apiset",
+          "icon": "bx bx-right-arrow-alt"
+        }
+      ]
+    },
+    {
       "url": "roles/list",
       "name": "Roles",
       "slug": "roles-list",

@@ -1,0 +1,18 @@
+CREATE TABLE `systems` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `systems`
+  ADD PRIMARY KEY (`id`);
+
+CREATE TABLE `configurationtool`.`products` ( `id` INT(11) NOT NULL , `system_id` INT(11) NOT NULL , `name` VARCHAR(255) NOT NULL , `is_active` TINYINT NOT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NULL , `created_by` INT(11) NULL , `updated_by` INT(11) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `products` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+
+CREATE TABLE `configurationtool`.`apisets` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `system_id` INT(11) NOT NULL , `product_id` INT(11) NOT NULL , `api` VARCHAR(255) NOT NULL , `values_to_replace` INT(255) NULL , `parent_api_id` INT(11) NULL , `group_name` VARCHAR(255) NULL , `order_by` INT(11) NULL , `is_active` TINYINT(1) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

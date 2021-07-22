@@ -1,0 +1,111 @@
+<?php
+
+		$host = 'https://canvas.instructure.com/api/v1/courses';
+		$ch = curl_init($host);
+		 $headers = array(
+			'Content-Type: application/json',
+			sprintf("Authorization: Bearer%s'7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d")
+		  );
+
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $Room_Meta);
+		$response = curl_exec($ch);
+		if(curl_errno($ch)){
+		// throw the an Exception.
+		throw new Exception(curl_error($ch));
+		}
+
+?>
+
+https://canvas.instructure.com/api/v1/courses?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+
+https://canvas.instructure.com/api/v1/audit/courses?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d&course=2802941
+
+/api/v1/courses/:course_id/enrollments 
+https://canvas.instructure.com/api/v1/courses/2802941/enrollments?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+/api/v1/courses/:course_id/quiz_extensions 
+https://canvas.instructure.com/api/v1/courses/2802941/quiz_extensions?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+
+/api/v1/courses/:course_id/assignments 
+https://canvas.instructure.com/api/v1/courses/2802941/assignments?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+/api/v1/announcements
+https://canvas.instructure.com/api/v1/courses/2802941/assignments?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+/api/v1/accounts
+https://canvas.instructure.com/api/v1/accounts?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+/api/v1/accounts/102396/grading_periods 
+https://canvas.instructure.com/api/v1/accounts/102396/grading_periods?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+api/v1/courses/:course_id/conferences
+https://canvas.instructure.com/api/v1/courses/2802941/conferences?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+api/v1/polls 
+https://canvas.instructure.com/api/v1/polls?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+/api/v1/accounts/:account_id/tabs
+https://canvas.instructure.com/api/v1/accounts/102396/tabs?access_token=7~t4m1EOm6KmonTMGItHnuH8IBvzqGDHTvz4a0K98hlGgEjQoXZE6lrJYnXRTEAt7d
+
+
+
+
+https://github.com/longhornopen/php-canvas-api/tree/main/src/LonghornOpen/CanvasApi
+
+
+
+
+
+product-date=> metadata
+				==> schema-table1(file)
+				==>schema-table2(file)
+			==> dataset
+				==>table1_data
+					==>rowset(file)
+					==>columnset
+						=> name(file)
+						=>password(file)
+
+
+https://canvas.instructure.com/doc/api/all_resources.html
+
+
+Systems
+	Products
+		apiset
+			api,values_to_replace, course_api,Group,order_by,is_active
+			
+			/api/v1/courses/:course_id/enrollments 
+
+
+
+
+$data=array(
+		data_types=>[
+					'string' =>20%,
+					'Object' => 10%,
+					'datetime'=> 45%,
+					'Numeric'  => 25%
+					],
+		strings => [],
+		object => [],
+		datetime =>[],
+		numeric => [],
+		all_data=.[]
+		)
+
+
+
+
+

@@ -17,6 +17,9 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ExtensionsController;
 use App\Http\Controllers\LanguageController;
 
+use App\Http\Controllers\SystemController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ApisetController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SourcedataController;
@@ -51,7 +54,30 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sourcedata/rules', [SourcedataController::class, 'rules'])->name('sourcedata-rules');
     
 
+    // System Route
+    Route::get('systems/list', [SystemController::class, 'index'])->name('systems-list');
+    Route::get('systems/add', [SystemController::class, 'create'])->name('systems-add');
+    Route::post('systems/store', [SystemController::class, 'store'])->name('systems-store');
+    Route::get('systems/view/{id}', [SystemController::class, 'show'])->name('systems-view');
+    Route::get('systems/edit/{id}', [SystemController::class, 'edit'])->name('systems-edit');
+    Route::post('systems/update/{id}', [SystemController::class, 'update'])->name('systems-update');
+    Route::post('systems/{id}/products', [SystemController::class, 'products'])->name('systems-products');
 
+    // Product Route
+    Route::get('products/list', [ProductController::class, 'index'])->name('products-list');
+    Route::get('products/add', [ProductController::class, 'create'])->name('products-add');
+    Route::post('products/store', [ProductController::class, 'store'])->name('products-store');
+    Route::get('products/view/{id}', [ProductController::class, 'show'])->name('products-view');
+    Route::get('products/edit/{id}', [ProductController::class, 'edit'])->name('products-edit');
+    Route::post('products/update/{id}', [ProductController::class, 'update'])->name('products-update');
+
+    // Apiset Route
+    Route::get('apiset/list', [ApisetController::class, 'index'])->name('apiset-list');
+    Route::get('apiset/add', [ApisetController::class, 'create'])->name('apiset-add');
+    Route::post('apiset/store', [ApisetController::class, 'store'])->name('apiset-store');
+    Route::get('apiset/view/{id}', [ApisetController::class, 'show'])->name('apiset-view');
+    Route::get('apiset/edit/{id}', [ApisetController::class, 'edit'])->name('apiset-edit');
+    Route::post('apiset/update/{id}', [ApisetController::class, 'update'])->name('apiset-update');
 
     // User Route
     Route::get('users/list', [UsersController::class, 'index'])->name('users-list');
