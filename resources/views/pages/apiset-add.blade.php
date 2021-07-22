@@ -106,11 +106,11 @@
 @section('page-scripts')
 <script src="{{asset('resources/js/scripts/pages/app-users.js')}}"></script>
 <script type="text/javascript">
-    $('#system_id').on('change', e => {
-      console.log(this.value);
+  $('#system_id').on('change', function() {
+      console.log();
         $('#product_id').empty()
         $.ajax({
-            url: `/systems/${e.value}/products`,
+            url: `/systems/`+this.value+`/products`,
             success: data => {
                 data.products.forEach(product =>
                     $('#product_id').append(`<option value="${product.id}">${product.name}</option>`)
