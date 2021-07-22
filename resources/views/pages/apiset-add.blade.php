@@ -50,6 +50,22 @@
                                 name="name">
                         </div>
                       </div>
+                      <div class="form-group">
+                        <div class="controls">
+                            <label>Product</label>
+                        <select class="form-control select2" name="product_id" id="product_id">
+                          <option value="">Select Product</option>
+                        </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="controls">
+                            <label>Group name</label>
+                        <input type="text" class="form-control" placeholder="Name"
+                                value=""
+                                name="group_name">
+                        </div>
+                      </div>
                   </div><div class="col-12 col-sm-6">
                       <div class="form-group">
                         <div class="controls">
@@ -62,18 +78,14 @@
                         </select>
                         </div>
                       </div>
-                  </div>
-                  <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <div class="controls">
-                            <label>Product</label>
-                        <select class="form-control select2" name="product_id" id="product_id">
-                          <option value="">Select Product</option>
-                        </select>
+                            <label>Values to replace</label>
+                            <input type="text" class="form-control" placeholder="Name"
+                                value=""
+                                name="values_to_replace">
                         </div>
                       </div>
-                  </div>
-                  <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="is_active" placeholder="Status">
