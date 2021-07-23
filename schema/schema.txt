@@ -16,3 +16,16 @@ CREATE TABLE `configurationtool`.`products` ( `id` INT(11) NOT NULL , `system_id
 ALTER TABLE `products` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE `configurationtool`.`apisets` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `system_id` INT(11) NOT NULL , `product_id` INT(11) NOT NULL , `api` VARCHAR(255) NOT NULL , `values_to_replace` INT(255) NULL , `parent_api_id` INT(11) NULL , `group_name` VARCHAR(255) NULL , `order_by` INT(11) NULL , `is_active` TINYINT(1) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `apisets` ADD `created_at` TIMESTAMP NOT NULL AFTER `is_active`, ADD `updated_at` TIMESTAMP NULL AFTER `created_at`, ADD `created_by` INT(11) NULL AFTER `updated_at`, ADD `updated_by` INT(11) NULL AFTER `created_by`;
+
+ALTER TABLE `apisets` CHANGE `values_to_replace` `values_to_replace` VARCHAR(255) NULL DEFAULT NULL;
+
+23/07/2021
+
+ALTER TABLE `systems` ADD `slug` VARCHAR(255) NULL AFTER `is_active`, ADD UNIQUE (`slug`);
+
+ALTER TABLE `products` ADD `slug` VARCHAR(255) NULL AFTER `name`, ADD UNIQUE (`slug`);
+
+ALTER TABLE `apisets` ADD `slug` VARCHAR(255) NULL AFTER `api`, ADD UNIQUE (`slug`);

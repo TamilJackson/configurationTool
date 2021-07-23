@@ -40,6 +40,7 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [UsersController::class, 'index'])->name('users-list');
 
+    Route::get('systemsourcedata/{id}', [SourcedataController::class, 'systemsourcedata'])->name('systemsourcedata');
     Route::get('sourcedata/lms', [SourcedataController::class, 'lms'])->name('sourcedata-lms');
     Route::get('sourcedata/sis', [SourcedataController::class, 'sis'])->name('sourcedata-sis');
     Route::get('sourcedata/dbmsystem', [SourcedataController::class, 'dbmsystem'])->name('sourcedata-dbmsystem');
@@ -61,7 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('systems/view/{id}', [SystemController::class, 'show'])->name('systems-view');
     Route::get('systems/edit/{id}', [SystemController::class, 'edit'])->name('systems-edit');
     Route::post('systems/update/{id}', [SystemController::class, 'update'])->name('systems-update');
-    Route::post('systems/{id}/products', [SystemController::class, 'products'])->name('systems-products');
+    Route::get('systems/products', [SystemController::class, 'products'])->name('systems-products');
 
     // Product Route
     Route::get('products/list', [ProductController::class, 'index'])->name('products-list');

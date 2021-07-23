@@ -76,7 +76,7 @@
                         <label>Status</label>
                         <select class="form-control" name="status" placeholder="Status">
                             <option value="1" @if($user->status) Selected @endif >Active</option>
-                            <option value="0" @if(!$user->status) Selected @endif >Banned</option>
+                            <option value="0" @if(!$user->status) Selected @endif >De-activate</option>
                         </select>
                       </div>
                   </div>

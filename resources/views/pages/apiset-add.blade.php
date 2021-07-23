@@ -44,16 +44,16 @@
                   <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <div class="controls">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Name"
+                            <label>API</label>
+                            <input type="text" class="form-control" placeholder="API"
                                 value=""
-                                name="name">
+                                name="api" required="">
                         </div>
                       </div>
                       <div class="form-group">
                         <div class="controls">
                             <label>Product</label>
-                        <select class="form-control select2" name="product_id" id="product_id">
+                        <select class="form-control select2" name="product_id" id="product_id" required="">
                           <option value="">Select Product</option>
                         </select>
                         </div>
@@ -61,16 +61,28 @@
                       <div class="form-group">
                         <div class="controls">
                             <label>Group name</label>
-                        <input type="text" class="form-control" placeholder="Name"
+                        <input type="text" class="form-control" placeholder="Group Name"
                                 value=""
-                                name="group_name">
+                                name="group_name" required="">
                         </div>
                       </div>
-                  </div><div class="col-12 col-sm-6">
+                      <div class="form-group">
+                        <div class="controls">
+                            <label>Parent API</label>
+                        <select class="form-control select2" name="parent_api_id" id="parent_api_id">
+                          <option value="">Select Parent API</option>                          
+                          @foreach ($apisets as $key => $apiset)
+                            <option value="{{$apiset->id}}">{{$apiset->api}}</option>
+                          @endforeach
+                        </select>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <div class="controls">
                             <label>System</label>
-                        <select class="form-control select2" name="system_id" id="system_id">
+                        <select class="form-control select2" name="system_id" id="system_id" required="">
                           <option value="">Select System</option>
                           @foreach ($systems as $key => $system)
                             <option value="{{$system->id}}">{{$system->name}}</option>
@@ -81,16 +93,22 @@
                       <div class="form-group">
                         <div class="controls">
                             <label>Values to replace</label>
-                            <input type="text" class="form-control" placeholder="Name"
+                            <input type="text" class="form-control" placeholder="Values to replace"
                                 value=""
                                 name="values_to_replace">
                         </div>
                       </div>
                       <div class="form-group">
+                        <label>Order by</label>
+                        <input type="text" class="form-control" placeholder="Order by"
+                                value=""
+                                name="order_by" required="">
+                      </div>                      
+                       <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" name="is_active" placeholder="Status">
+                        <select class="form-control" name="is_active" placeholder="Status" required="">
                             <option value="1">Active</option>
-                            <option value="0">Banned</option>
+                            <option value="0">De-activate</option>
                         </select>
                       </div>
                   </div>
@@ -122,8 +140,10 @@
       console.log();
         $('#product_id').empty()
         $.ajax({
-            url: `/systems/`+this.value+`/products`,
+            url: "{{route('systems-products')}}",
+            data: { id : this.value },
             success: data => {
+                $('#product_id').append(`<option value=""></option>`);
                 data.products.forEach(product =>
                     $('#product_id').append(`<option value="${product.id}">${product.name}</option>`)
                 )

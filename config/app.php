@@ -231,4 +231,6 @@ return [
         'Helper' => App\Helpers\Helper::class,
     ],
 
+    'client_id' => '00001',
+
 ];

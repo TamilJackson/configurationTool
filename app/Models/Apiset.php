@@ -13,10 +13,14 @@ class Apiset extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'api',
         'system_id',
         'product_id',
-        'is_active'
+        'group_name',
+        'parent_api_id',
+        'values_to_replace',
+        'order_by',
+        'is_active',
     ];
 
     public function system() {

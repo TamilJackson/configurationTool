@@ -114,11 +114,12 @@ class SystemController extends Controller
                         ->with('success','System deleted successfully');
     }
 
-    public function products(Request $request, $id) {
-    if ($request->ajax()) {
-        return response()->json([
-            'products' => Product::where('system_id', $id)->get()
-        ]);
+    public function products(Request $request) {
+        if ($request->ajax()) {
+            $id = $request->id;
+            return response()->json([
+                'products' => Product::where('system_id', $id)->get()
+            ]);
     }
 }
 }

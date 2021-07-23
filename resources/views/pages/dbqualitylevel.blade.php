@@ -44,19 +44,18 @@
                   $i=1;
                   $active='active';
                   @endphp
-                  @foreach($files as $file)
+                  @foreach($dataset as $data)
                   @php
-                  $filename = str_replace('dbms/'.$folder.'/table_', '', $file);
-                  $tablename = str_replace('.json', '', $filename);
+                  $filename = str_replace($client_id.'/dbms/'.$folder.'/dataset', '', $data);
+                  $filename = str_replace('.json', '', $filename);
+                  $tablename = str_replace('/', '', $filename);
                   if($i!=1)
                   $active='';
                   @endphp
-                  @if(!str_contains($tablename, 'schema'))
                   <a class="nav-link {{$active}}" id="stacked-pill-{{$i}}" data-toggle="pill" href="#vertical-pill-{{$i}}" aria-expanded="true">{!! $tablename !!}</a>
                   @php
                   $i++;
                   @endphp
-                  @endif
                   @endforeach
                 </li>
               </ul>
@@ -67,14 +66,14 @@
                   $i=1;
                   $active='active';
                   @endphp
-                  @foreach($files as $file)
+                  @foreach($dataset as $data)
                   @php
-                  $filename = str_replace('dbms/'.$folder.'/table_', '', $file);
-                  $tablename = str_replace('.json', '', $filename);
+                  $filename = str_replace($client_id.'/dbms/'.$folder.'/dataset', '', $data);
+                  $filename = str_replace('.json', '', $filename);
+                  $tablename = str_replace('/', '', $filename);
                   if($i!=1)
                   $active='';
                   @endphp
-                  @if(!str_contains($tablename, 'schema'))
                 <div role="tabpanel" class="tab-pane {{$active}}" id="vertical-pill-{{$i}}" aria-labelledby="stacked-pill-{{$i}}"
                 aria-expanded="true">
                     <!-- table view data start -->
@@ -184,8 +183,7 @@
                             <div class="table-responsive">
 
                                 @php
-                                $json = json_decode(file_get_contents(storage_path('app/dbms/'.$folder.'/schema_'.$tablename.'.json')),true);
-                                $json = $json[$tablename];
+                                $json = json_decode(file_get_contents(storage_path('app/'.$client_id.'/dbms/'.$folder.'/metadata/schema_'.$tablename.'.json')),true);
                                 @endphp
                                 <table id="table-extended-success" class="table mb-0">
                                     <thead>
@@ -203,10 +201,13 @@
                                           <tr>
                                               <td>{{$field['Field']}}</td>
                                               <td>{{$field['Type']}}</td>
+<!--                                               @php
+                                              $json = json_decode(file_get_contents(storage_path('app/'.$client_id.'/dbms/'.$folder.'/dataset/'.$tablename.'/columnset/'.$field['Field'].'.json')),true);
+                                              @endphp -->
                                               <td></td>
+                                              <td>100%</td>
                                               <td></td>
-                                              <td></td>
-                                              <td><i class="bx bx-edit-alt"></i></td>
+                                              <td><a href="javascript:void(0);" data-toggle="modal" data-target="#xlarge"><i class="bx bx-edit-alt mr-1"></i></a></td>
                                           </tr>
                                         @endforeach
                                     </tbody>
@@ -252,7 +253,8 @@
                                                           <div class="table-responsive">
                                                               <table class="table zero-configuration" id="users-list-datatable">
                                                                 @php
-                                                                $json = json_decode(file_get_contents(storage_path('app/'.$file)),true);
+                                                                $json = json_decode(file_get_contents(storage_path('app/'.$client_id.'/dbms/'.$folder.'/dataset/'.$tablename.'/rowset.json')),true);
+
                                                                 @endphp
                                                                   <thead>
                                                                       <tr>
@@ -300,17 +302,7 @@
                   @php
                   $i++;
                   @endphp
-                  @endif
                   @endforeach
-              <!--   <div class="tab-pane" id="vertical-pill-2" role="tabpanel" aria-labelledby="stacked-pill-2"
-                aria-expanded="false">
-                </div>
-                <div class="tab-pane" id="vertical-pill-3" role="tabpanel" aria-labelledby="stacked-pill-3"
-                aria-expanded="false">
-                </div>
-                <div class="tab-pane" id="vertical-pill-4" role="tabpanel" aria-labelledby="stacked-pill-4"
-                aria-expanded="false">
-                </div> -->
               </div>
             </div>
           </div>

@@ -78,6 +78,30 @@ product-date=> metadata
 						=>password(file)
 
 
+S3 => Client_id => System=>Product=>date
+										=>metadata
+											==> schema-table1(file)
+											==>schema-table2(file)
+											
+										=>Dataset
+											==>table1_data
+												==>rowset(file)
+												==>columnset
+													=> name(file)
+													=>password(file)
+						=>date
+							=>metadata
+								==> schema-table1(file)
+								==>schema-table2(file)
+								
+							=>Dataset
+								==>table1_data
+									==>rowset(file)
+									==>columnset
+										=> name(file)
+										=>password(file)
+
+
 https://canvas.instructure.com/doc/api/all_resources.html
 
 
@@ -102,10 +126,10 @@ $data=array(
 		object => [],
 		datetime =>[],
 		numeric => [],
-		all_data=.[]
+		all_data => []
 		)
 
 
-
-
+client_id=>system=>product=>db=>table=>column=>metadata=>rules
+client_id=>system=>product=>apiset=>api=>column=>metadata=>rules
 

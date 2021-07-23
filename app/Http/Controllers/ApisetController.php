@@ -30,7 +30,8 @@ class ApisetController extends Controller
     {
         $systems = System::all();
         $products = Product::all();
-        return view('pages.apiset-add',compact('systems','products'));
+        $apisets = Apiset::all();
+        return view('pages.apiset-add',compact('systems','products','apisets'));
     }
     
     /**
@@ -42,9 +43,11 @@ class ApisetController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'api' => 'required',
             'system_id' => 'required',
-            'product_id' => 'required'
+            'product_id' => 'required',
+            'group_name' => 'required',
+            'order_by' => 'required',
         ]);
     
         $input = $request->all();
@@ -76,9 +79,10 @@ class ApisetController extends Controller
     public function edit($id)
     {
         $apiset = Apiset::find($id);
+        $apisetlists = Apiset::all();
         $systems = System::all();    
         $products = Product::all();    
-        return view('pages.apiset-edit',compact('apiset','products','systems'));
+        return view('pages.apiset-edit',compact('apiset','apisetlists','products','systems'));
     }
     
     /**
@@ -91,9 +95,11 @@ class ApisetController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'api' => 'required',
             'system_id' => 'required',
-            'product_id' => 'required'
+            'product_id' => 'required',
+            'group_name' => 'required',
+            'order_by' => 'required',
         ]);
     
         $input = $request->all();

@@ -105,6 +105,7 @@ return [
   "Products" => "Products",
   "API Set" => "API Set",
   "Master Source Data" => "Master Source Data",
+  "Static Data" => "Static Data",
   "List" => "List",
   "View" => "View",
   "Add" => "Add",

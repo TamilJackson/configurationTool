@@ -80,7 +80,7 @@
                         <label>Status</label>
                         <select class="form-control" name="status" placeholder="Status">
                             <option value="1">Active</option>
-                            <option value="0">Banned</option>
+                            <option value="0">De-activate</option>
                         </select>
                       </div>
                       <div class="form-group">

@@ -25,30 +25,39 @@
   <div class="shadow-bottom"></div>
   <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
-        @if(!empty($menuData[0]) && isset($menuData[0]))
-        @foreach ($menuData[0]->menu as $menu)
-            @if(isset($menu->navheader))
-                <li class="navigation-header text-truncate"><span>{{$menu->navheader}}</span></li>
-            @else
-            <li class="nav-item {{ Route::currentRouteName() === $menu->slug ? 'active' : '' }}">
-            <a href="@if(isset($menu->url)){{asset($menu->url)}} @endif" @if(isset($menu->newTab)){{"target=_blank"}}@endif>
-                @if(isset($menu->icon))
-                    <i class="menu-livicon" data-icon="{{$menu->icon}}"></i>
-                @endif
-                @if(isset($menu->name))
-                    <span class="menu-title text-truncate">{{ __('locale.'.$menu->name)}}</span>
-                @endif
-                @if(isset($menu->tag))
-                <span class="{{$menu->tagcustom}} ml-auto">{{$menu->tag}}</span>
-                @endif
-            </a>
-            @if(isset($menu->submenu))
-                @include('panels.sidebar-submenu',['menu' => $menu->submenu])
-            @endif
-            </li>
-            @endif
-        @endforeach
-        @endif
+      <li class="nav-item {{ Route::currentRouteName() === 'systemsourcedata' ? 'active' : '' }}">
+        <a href=""><i class="menu-livicon" data-icon="diagram"></i><span class="menu-title text-truncate">{{ __('locale.Source Data')}}</span></a>
+        <ul class="menu-content">
+          @foreach (App\Models\System::get() as $menuItem)
+          @if( $menuItem->exists )
+          <li>
+            <a href="{{route('systemsourcedata',$menuItem->id)}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{$menuItem->name}}</span></a>
+          </li>
+          @endif
+          @endforeach
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href=""><i class="menu-livicon" data-icon="grid"></i><span class="menu-title text-truncate">{{ __('locale.Static Data')}}</span></a>
+        <ul class="menu-content">
+          <li class="{{ Route::currentRouteName() === 'sourcedata-dbmsystem' ? 'active' : '' }}"><a href="{{route('sourcedata-dbmsystem')}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{ __('locale.DB Management System')}}</span></a></li>
+          <li class="{{ Route::currentRouteName() === 'sourcedata-filesystem' ? 'active' : '' }}"><a href="{{route('sourcedata-filesystem')}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{ __('locale.File System')}}</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href=""><i class="menu-livicon" data-icon="two-pointers"></i><span class="menu-title text-truncate">{{ __('locale.Master Source Data')}}</span></a>
+        <ul class="menu-content">
+          <li class="{{ Route::currentRouteName() === 'systems-list' || Route::currentRouteName() === 'systems-add' || Route::currentRouteName() === 'systems-edit' ? 'active' : '' }}"><a href="{{route('systems-list')}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{ __('locale.Systems')}}</span></a></li>
+          <li class="{{ Route::currentRouteName() === 'products-list' || Route::currentRouteName() === 'products-add' || Route::currentRouteName() === 'products-edit' ? 'active' : '' }}"><a href="{{route('products-list')}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{ __('locale.Products')}}</span></a></li>
+          <li class="{{ Route::currentRouteName() === 'apiset-list' || Route::currentRouteName() === 'apiset-add' || Route::currentRouteName() === 'apiset-edit' ? 'active' : '' }}"><a href="{{route('apiset-list')}}"  class="d-flex align-items-center"><i class="bx bx-right-arrow-alt"></i><span class="menu-item text-truncate">{{ __('locale.API Set')}}</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-item {{ Route::currentRouteName() === 'roles-list' || Route::currentRouteName() === 'roles-add' || Route::currentRouteName() === 'roles-edit' ? 'active' : '' }}">
+        <a href="{{route('roles-list')}}"><i class="menu-livicon" data-icon="shield"></i><span class="menu-title text-truncate">{{ __('locale.Roles')}}</span></a>
+      </li>
+      <li class="nav-item {{ Route::currentRouteName() === 'users-list' || Route::currentRouteName() === 'users-add' || Route::currentRouteName() === 'users-edit' ? 'active' : '' }}">
+        <a href="{{route('users-list')}}"><i class="menu-livicon" data-icon="users"></i><span class="menu-title text-truncate">{{ __('locale.Users')}}</span></a>
+      </li>
     </ul>
   </div>
 </div>

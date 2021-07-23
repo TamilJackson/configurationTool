@@ -42,7 +42,8 @@
         <div class="list-group">
           @foreach($folders as $folder)
           @php
-          $foldername = str_replace('dbms/', '', $folder);
+          $client_id = config('app.client_id');
+          $foldername = str_replace($client_id.'/dbms/', '', $folder);
           @endphp
           <a href="{{route('sourcedata-dbqualitylevel',$foldername)}}" class="list-group-item list-group-item-action">{!! $foldername !!}</a>
           @endforeach
@@ -56,6 +57,9 @@
           <div class="col-12">
             <form class="form-validate setupForm" method="POST" action="{{route('connectdbmsystem')}}">
               {{ csrf_field() }}
+              <input type="hidden" class="form-control" value="" name="system_id">
+              <input type="hidden" class="form-control" value="dbms" name="system_slug">
+              <input type="hidden" class="form-control" value="" name="prouct_id">
               <div class="row">
                 
                   <div class="col-12 col-sm-12 db">
@@ -78,8 +82,7 @@
                       <div class="form-group">
                         <div class="controls">
                             <label>Host</label>
-                            <input type="text" class="form-control" placeholder="Host"
-                                value=""
+                            <input type="text" class="form-control" placeholder="Host" value=""
                                 name="host" required="">
                         </div>
                       </div>

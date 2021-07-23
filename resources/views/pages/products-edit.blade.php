@@ -69,7 +69,7 @@
                         <label>Status</label>
                         <select class="form-control" name="is_active" placeholder="Status">
                             <option value="1" @if($product->is_active) Selected @endif >Active</option>
-                            <option value="0" @if(!$product->is_active) Selected @endif >Banned</option>
+                            <option value="0" @if(!$product->is_active) Selected @endif >De-activate</option>
                         </select>
                       </div>
                   </div>
